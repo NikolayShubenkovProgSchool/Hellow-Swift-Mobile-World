@@ -81,7 +81,7 @@
         <!--Конвертор-->
         <scene sceneID="M9K-xl-nb3">
             <objects>
-                <viewController id="vHg-11-6Ec" sceneMemberID="viewController">
+                <viewController id="vHg-11-6Ec" customClass="ConverterViewController" customModule="Hellow_Swift_Mobile_World" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="cTC-lp-M0g"/>
                         <viewControllerLayoutGuide type="bottom" id="5JU-lR-8VB"/>
@@ -90,7 +90,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCy-K7-3V1">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCy-K7-3V1" userLabel="ConverterContainer">
                                 <rect key="frame" x="22" y="120" width="554" height="108"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ybJ-uO-LEp">
@@ -98,14 +98,17 @@
                                         <state key="normal" title="--&gt;">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="rubToUsdPressed:" destination="vHg-11-6Ec" eventType="touchUpInside" id="dmW-qp-9A4"/>
+                                        </connections>
                                     </button>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ga-4q-Lmb">
-                                        <rect key="frame" x="340" y="39" width="194" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Доллары" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ga-4q-Lmb" userLabel="Left">
+                                        <rect key="frame" x="317" y="39" width="217" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cvk-PR-lB3">
-                                        <rect key="frame" x="20" y="39" width="194" height="30"/>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Рубли" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Cvk-PR-lB3" userLabel="Right">
+                                        <rect key="frame" x="20" y="39" width="217" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
@@ -114,6 +117,9 @@
                                         <state key="normal" title="&lt;--">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="usdToRubPressed:" destination="vHg-11-6Ec" eventType="touchUpInside" id="zry-GJ-B6Q"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="0.50196081400000003" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -126,7 +132,7 @@
                                     <constraint firstItem="3ga-4q-Lmb" firstAttribute="height" secondItem="Cvk-PR-lB3" secondAttribute="height" id="W2k-UX-rTx"/>
                                     <constraint firstItem="ybJ-uO-LEp" firstAttribute="centerX" secondItem="gCy-K7-3V1" secondAttribute="centerX" id="ceW-PC-zbi"/>
                                     <constraint firstItem="ybJ-uO-LEp" firstAttribute="centerX" secondItem="UYe-Hz-nrg" secondAttribute="centerX" id="r6e-tB-d6d"/>
-                                    <constraint firstItem="3ga-4q-Lmb" firstAttribute="leading" secondItem="Cvk-PR-lB3" secondAttribute="trailing" constant="126" id="unl-tS-LRb"/>
+                                    <constraint firstItem="3ga-4q-Lmb" firstAttribute="leading" secondItem="Cvk-PR-lB3" secondAttribute="trailing" constant="80" id="unl-tS-LRb"/>
                                     <constraint firstItem="UYe-Hz-nrg" firstAttribute="top" secondItem="ybJ-uO-LEp" secondAttribute="bottom" constant="8" id="vF1-Y9-moL"/>
                                     <constraint firstItem="3ga-4q-Lmb" firstAttribute="width" secondItem="Cvk-PR-lB3" secondAttribute="width" id="wgV-oV-hzs"/>
                                     <constraint firstItem="ybJ-uO-LEp" firstAttribute="top" secondItem="gCy-K7-3V1" secondAttribute="top" constant="20" id="zeB-9H-pEH"/>
@@ -141,6 +147,10 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Конвертор" id="qig-sP-e7F"/>
+                    <connections>
+                        <outlet property="dollarInput" destination="3ga-4q-Lmb" id="dIE-Sb-wEv"/>
+                        <outlet property="rubInput" destination="Cvk-PR-lB3" id="YyQ-PE-Ub6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Hm-ne-ddc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
